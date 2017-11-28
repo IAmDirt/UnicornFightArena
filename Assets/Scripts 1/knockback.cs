@@ -21,25 +21,29 @@ public class knockback : MonoBehaviour
         rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
     //go forward
-    void Update()
+    void FixedUpdate()
     {
         if (Speed <= -10)
         {
             Speed = 0f;
         }
-        Vector3 pos = transform.position;
+        //Vector3 pos = transform.position;
 
-        Vector3 velocity = new Vector3(0, Speed * Time.deltaTime, 0);
+        Vector2 velocity = new Vector3(0, Speed);
+        velocity = transform.rotation * velocity;
 
-        pos += transform.rotation * velocity;
+        rb2d.AddForce(velocity);
 
-        transform.position = pos;
+        //pos += transform.rotation * velocity;
+
+        //transform.position = pos;
 
         if (Speed < maxSpeed)
 
             Speed += 0.04f;
     }
 
+    /*
     public IEnumerator rettning ( float knockDur )
     {
 
@@ -54,10 +58,10 @@ public class knockback : MonoBehaviour
         }
         yield return 0;
     }
+    */
 
 
 
-        //	dont colide with tag ("enemy")
         void OnCollisionEnter2D(Collision2D coll)
         {
             if (coll.gameObject.tag == "enemy")
@@ -70,11 +74,12 @@ public class knockback : MonoBehaviour
                 Vector2 myPos = transform.position;
                 Vector2 direction = myPos - collisionPoint * KnockBackForce;
 
+            rb2d.AddForce(direction * KnockBackForce);
 
-                
-//            rb2d.AddForce (direction * KnockBackForce);
 
-               Speed -= 3;
+            //            rb2d.AddForce (direction * KnockBackForce);
+
+            Speed -= 3;
             }
         }
     }

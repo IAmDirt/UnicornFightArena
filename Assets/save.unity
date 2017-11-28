@@ -402,7 +402,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: f53f0e5cd92ba5148aace93d59b06aaf, type: 2}
       propertyPath: dashDistance
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 21239396, guid: f53f0e5cd92ba5148aace93d59b06aaf, type: 2}
       propertyPath: m_Sprite
@@ -1593,14 +1593,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1221779107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,7 +1898,7 @@ MonoBehaviour:
   MousePoint: {fileID: 572455098}
   bulletOffset: {x: 0.7, y: 0, z: 0}
   bulletVelocity: 1
-  bullet: {fileID: 1967919139005044, guid: f1f86a0a5295487478a2928a7a698528, type: 2}
+  bullet: {fileID: 0}
   fireDelay: 0.25
 --- !u!212 &1428643937
 SpriteRenderer:
