@@ -5,29 +5,37 @@ using UnityEngine;
 public class FacePlayer : MonoBehaviour
 {
     public float rotSpeed = 90;
-    Transform player;
+
+    public Transform LookAtThis;
+    bool PlayerClose;
+
+    public Transform Spawner;
+    public Transform Player;
+    public float maxRange = 10;
+
 
     void Update()
     {
-        //face player
-        if (player == null) 
-			
-		{
+        Player = GameObject.Find("UnicornPlayer").transform;
+        Spawner = GameObject.Find("RompetrollSpawner").transform;
+        //distance
+        float distance = Vector2.Distance(Spawner.position, Player.position);
 
-			GameObject go = GameObject.Find("UnicornPlayer");
-		
-			if (go != null) 
-			{
-				player = go.transform;
-			}
-		
-		}
-		if (player == null)
-		{
-			return;
-		}
+        //if you are close to spawner
+        if (distance <= maxRange)
+            { 
+                LookAtThis = GameObject.Find("UnicornPlayer").transform;
 
-		Vector3 dir = player.position - transform.position;
+            }
+        //not close to spawner
+        if (distance >= maxRange)
+            {
+                LookAtThis = GameObject.Find("spawnTargetPoint").transform;
+
+
+            }
+
+            Vector2 dir = LookAtThis.position - transform.position;
 
         dir.Normalize();
 		float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
