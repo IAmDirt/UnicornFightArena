@@ -48,7 +48,7 @@ namespace PC2D
                     _currentFacingLeft = false;
                 }
 
-                Vector3 rotateDir = _currentFacingLeft ? Vector3.forward : Vector3.back;
+                //Vector3 rotateDir = _currentFacingLeft ? Vector3.forward : Vector3.back;
                 //visualChild.transform.Rotate(rotateDir, jumpRotationSpeed * Time.deltaTime);
             }
             else

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114004222313942214}
   - component: {fileID: 114073222874936610}
   - component: {fileID: 58478781745190648}
+  - component: {fileID: 114499066885532150}
   m_Layer: 0
   m_Name: rompetroll_12 1
   m_TagString: enemy
@@ -127,6 +128,19 @@ MonoBehaviour:
   Spawner: {fileID: 0}
   Player: {fileID: 0}
   maxRange: 18
+--- !u!114 &114499066885532150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1558616213117548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1972231e9b3d84eae57e926d3f39cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  health: 3
 --- !u!212 &212058355263905296
 SpriteRenderer:
   m_ObjectHideFlags: 1
