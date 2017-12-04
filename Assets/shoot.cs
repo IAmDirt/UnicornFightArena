@@ -3,51 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class shoot : MonoBehaviour {
-
+/*
     public float width = 1;
     public float height = 1;
  //   public Vector3 position;
 
     public GameObject LookAt;
-    public Transform DamageThis;
+    public GameObject DamageThis;
     public float rotSpeed = 180f;
-
+    */
 
     void start()
     {
 
-
-
-
-        // set the scaling
-
-        // set the position
-  //      transform.position = position;
     }
 
 
-    void Update()
+  /*  void Update()
     {
-    //    width = GetComponent<GetClosesObject>().distance;
-  //      Debug.Log(string.Format("width = ", + width));
-
-        // set the scaling
-//        Vector3 scale = new Vector3(height, width, 1f);
- //       transform.localScale = scale;
-        // set the position
-        //      transform.position = position;
+  //      DamageThis = GetComponent<GetClosesObject>().closest;
 
         if (DamageThis != null)
         {
-           // GameObject LookAt = GetComponent<GetClosesObject>().closest;
-            DamageThis = LookAt.transform;
+            Vector3 position = transform.position;
+            Vector3 diff = DamageThis.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            Debug.Log(curDistance);
 
-            Vector2 dir = DamageThis.position - transform.position;
+
+
+
+
+
+
+            // GameObject LookAt = GetComponent<GetClosesObject>().closest
+            Vector2 dir = DamageThis.transform.position - transform.position;
 
             dir.Normalize();
             float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
             Quaternion desiredRot = Quaternion.Euler(0, 0, zAngle);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRot, rotSpeed * Time.deltaTime);
         }
-    }
+    }*/
 }

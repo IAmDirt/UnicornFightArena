@@ -18,6 +18,7 @@ public class GetClosesObject : MonoBehaviour
         foreach (GameObject go in gos)
         {
             Vector3 diff = go.transform.position - position;
+            //Debug.Log(diff);
             float curDistance = diff.sqrMagnitude;
             if (curDistance < distance)
             {
