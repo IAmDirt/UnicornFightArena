@@ -151,6 +151,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114073222874936610, guid: b3f439f8e458e764b8dbfa06c9c44b02,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114004222313942214, guid: b3f439f8e458e764b8dbfa06c9c44b02,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114499066885532150, guid: b3f439f8e458e764b8dbfa06c9c44b02,
+        type: 2}
+      propertyPath: health
+      value: 183
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3f439f8e458e764b8dbfa06c9c44b02, type: 2}
   m_IsPrefabParent: 0
@@ -353,9 +368,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f442b95967b7738448d4959f7dd7f638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GetNewHight: 0
+  RandomShotHight: 0
+  RandomShotUpOrDown: 0
   DamageThis: {fileID: 0}
   type: 0
+  Shot: {fileID: 256591225}
+  rend: {fileID: 0}
   rotSpeed: 360
+  animationHasEnded: 1
 --- !u!114 &191237464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +519,6 @@ GameObject:
   m_Component:
   - component: {fileID: 256591228}
   - component: {fileID: 256591227}
-  - component: {fileID: 256591226}
   m_Layer: 0
   m_Name: test skupp_0
   m_TagString: Untagged
@@ -506,17 +526,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &256591226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 256591225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c87e8426d5c2c0b4285127d5d2868cef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &256591227
 SpriteRenderer:
   m_ObjectHideFlags: 0
