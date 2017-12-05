@@ -115,7 +115,7 @@ public class DamageTarget : MonoBehaviour
                     animationHasEnded = true;
                     GetNewHight = false;
             }
-
+        
 }
 
 public enum DamageType

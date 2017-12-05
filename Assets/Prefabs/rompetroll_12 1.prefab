@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5c98bbd9fa77d41bbdc96c2215c2c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 90
+  rotSpeed: 120
   LookAtThis: {fileID: 0}
   Spawner: {fileID: 0}
   Player: {fileID: 0}
