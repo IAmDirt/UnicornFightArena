@@ -5,8 +5,8 @@ using UnityEngine;
 public class knockback : MonoBehaviour
 {
 
-    public float maxSpeed = 8;
-    public float Speed = 1;
+    public float maxSpeed = 8f;
+    public float Speed = 1f;
 
     public float KnockBackForce;
 

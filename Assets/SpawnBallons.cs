@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnRompetroll : MonoBehaviour {
+public class SpawnBallons : MonoBehaviour
+{
+    float SpawnPositionX;
 
     public GameObject Rompetroll;
     public Vector2 SpawnDirection;
@@ -10,7 +12,17 @@ public class SpawnRompetroll : MonoBehaviour {
     public float spawnRate;
     float nextSpawn;
 
-    void Update () {
+    void start()
+    {
+
+    }
+
+    void Update()
+    {
+
+        SpawnPositionX = Random.Range(-3f, 3f);
+        SpawnDirection = new Vector2(SpawnPositionX, 1);
+
         if (Time.time > nextSpawn)
         {
             nextSpawn = Time.time + spawnRate;
