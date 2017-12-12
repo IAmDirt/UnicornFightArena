@@ -11,7 +11,8 @@ public class DamageTarget : MonoBehaviour
     public GameObject DamageThis;
     public DamageType type = DamageType.DamagesPlayer;
 
-    public GameObject Shot;
+    public GameObject[] Shot;
+    public GameObject CurrentShot;
     public Renderer rend;
     public float rotSpeed = 500f;
 
@@ -19,19 +20,16 @@ public class DamageTarget : MonoBehaviour
 
     void Start()
     {
-     /*   //få spriten til av og til være opp ned
-        RandomShotUpOrDown = Random.Range(1f, 2f);
-        if (RandomShotUpOrDown < 2f)
-        {
-            RandomShotHight = Random.Range(0.8f, 2f);
-        }
-        else
-        {
-            RandomShotHight = Random.Range(-0.8f, -2f);
-        }*/
 
-        rend = Shot.GetComponent<Renderer>();
-        rend.enabled = false;
+        //tag random object fra lista
+        //int index = Random.Range(0, Shot.Length);
+        //CurrentShot = Shot[index];
+
+        foreach (GameObject go in Shot)
+        {
+            rend = go.GetComponent<Renderer>();
+            rend.enabled = false;
+        }
     }
 
     void Update()
@@ -71,29 +69,25 @@ public class DamageTarget : MonoBehaviour
 
                     if (shouldDoDamage)
                     {
+                        int index = Random.Range(0, Shot.Length);
+                        CurrentShot = Shot[index];
+
                         animationHasEnded = false;
-                        rend.enabled = true;
+                        CurrentShot.GetComponent<Renderer>().enabled = true;
                         StartCoroutine(wait());
                         health.TakeDamage();
                     }
                 }
             }
+            //sett scale of shot
+            float distance = Vector3.Distance(DamageThis.transform.position, transform.position);
+            Vector3 dir = DamageThis.transform.position - transform.position;
 
+            foreach (GameObject go in Shot)
+                go.transform.localScale = new Vector3(RandomShotHight, distance /2f, 0);
+   
 
-                Vector3 dir = DamageThis.transform.position - transform.position;
-                float distance = dir.sqrMagnitude;
-                if (dir.x <= 0)
-                {
-                    Shot.transform.localScale = new Vector3(RandomShotHight, dir.x / -3f, 0);
-                }
-
-                if (dir.x > 0)
-                {
-                    Shot.transform.localScale = new Vector3(RandomShotHight, dir.x / 3f, 0);
-                }
-
-
-                // bare roter når du ikkje viser skuddet
+            // bare roter når du ikkje viser skuddet
             if (animationHasEnded)
             {
                 //shot is allways pointing at enemy
@@ -102,8 +96,6 @@ public class DamageTarget : MonoBehaviour
                     float zAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
                     Quaternion desiredRot = Quaternion.Euler(0, 0, zAngle);
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, desiredRot, rotSpeed * Time.deltaTime);
-                    //få ny høgde til skudd
-
                 }
             }
         }
@@ -111,7 +103,7 @@ public class DamageTarget : MonoBehaviour
             IEnumerator wait()
             {
                     yield return new WaitForSeconds(0.1f);
-                    rend.enabled = false;
+                    CurrentShot.GetComponent<Renderer>().enabled = false;
                     animationHasEnded = true;
                     GetNewHight = false;
             }

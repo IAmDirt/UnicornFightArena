@@ -33,6 +33,7 @@ public class FacePlayer : MonoBehaviour
             LookAtThis = GameObject.Find("UnicornPlayer").transform;
         }
 
+        //rotate
         if (LookAtThis != null)
         {
             Vector2 dir = LookAtThis.position - transform.position;

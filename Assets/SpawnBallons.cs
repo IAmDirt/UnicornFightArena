@@ -20,7 +20,7 @@ public class SpawnBallons : MonoBehaviour
     void Update()
     {
 
-        SpawnPositionX = Random.Range(-3f, 3f);
+        SpawnPositionX = Random.Range(-6f, 6f);
         SpawnDirection = new Vector2(SpawnPositionX, 1);
 
         if (Time.time > nextSpawn)
