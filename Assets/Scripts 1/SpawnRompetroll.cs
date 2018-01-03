@@ -13,8 +13,8 @@ public class SpawnRompetroll : MonoBehaviour {
     public Vector2 SpawnDirection;
 
     public float spawnRate;
-    float nextSpawn;
 
+    public float nextSpawn;
     void Update () {
 
         Player = GameObject.Find("UnicornPlayer");
